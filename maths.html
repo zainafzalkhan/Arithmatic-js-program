@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>We will be working on maths logic base questions</h1>
+    <ul>
+        <li>Sum of natural numbers</li>
+        <li>sum of digits of number</li>
+        <li>Count the digits of given number</li>
+        <li>Find the palindrome number</li>
+    </ul>
+
+    <script>
+        // sum of nutural number
+
+        function sum_of_n_numbers(num){
+            let total=0;
+            for(let i=1;i<=num;i++){
+                total=total+num
+            };
+            return total;
+        };
+        let sum=sum_of_n_numbers(10);
+        console.log(`sum of first 10 numbers is : ${sum}`);
+
+        function sum_of_digits(num){
+            // 1295;
+            let temp=num;
+            let total=0;
+            while(temp>0){                  // 1295     129         12          1
+                let remain=temp%10;         // 5        9           2           1
+                total=total+remain;         // 0+5=5    5+9=14      14+2=16     16+1=17
+                temp=Math.floor(temp/10);   // 129      12          1           0  
+            }
+            return total;
+        };
+       let res= sum_of_digits(1295);
+       console.log(`sum of digits 1295 is ${res}`);
+
+
+       function is_palindrome(num){
+        // 121
+        // 1*10+2=12
+        // 12*10+1=1331
+        let temp=num;
+        let newNum=0;
+        while(temp>0){              //1331      133         13       1
+            let remain=temp%10;     //1         3           3        1
+            newNum=newNum*10+remain;//1         13          133      1331
+            temp=Math.floor(temp/10);//133      13          1        0 
+        }
+        if(newNum==num){
+            return `Num ${num} is palindrome`
+        }else{
+            return `Num ${num} is NOT palind`
+        }
+       }
+       [121,11443,1334331,6644335,992242299].forEach(num=>console.log(is_palindrome(num)))
+    </script>
+</body>
+</html>
