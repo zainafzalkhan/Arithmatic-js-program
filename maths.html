@@ -41,6 +41,7 @@
        let res= sum_of_digits(1295);
        console.log(`sum of digits 1295 is ${res}`);
 
+      
 
        function is_palindrome(num){
         // 121
@@ -59,7 +60,29 @@
             return `Num ${num} is NOT palind`
         }
        }
-       [121,11443,1334331,6644335,992242299].forEach(num=>console.log(is_palindrome(num)))
+       [121,11443,1334331,6644335,992242299].forEach(num=>console.log(is_palindrome(num)));
+
+    //    Fibonacci num : The next number is found by adding up the two numbers before it
+
+
+       function fibonacci_num(num){
+        // 0 1 1 2 3 5 8 13 21 35 and so on...
+
+        let first =0;
+        let sec=1;
+        let final=1
+        let series=[first,sec]
+        for(let i=3;i<=num;i++){
+            final=first+sec;  // first=0,sec=1,next=1;    first=1,sec=1 next=2  first=1,sec=2 next=3  first=2,sec=3,next=5 first=3,sec=5 next=8
+            first=sec;           // first=1                  first=1               first=2               first=3              first=5
+            sec=final;            // sec=1;                   sec=2                 sec=3                 sec=5                sec=8
+            series.push(final)
+        }
+        return {final,series}
+       };
+       // find first 7 and 14 fibo nums
+       [7,14].forEach(num=>console.log(`Fibo of first ${num}`,fibonacci_num(num)))
+       
     </script>
 </body>
 </html>
